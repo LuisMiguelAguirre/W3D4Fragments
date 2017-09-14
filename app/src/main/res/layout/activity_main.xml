@@ -12,7 +12,7 @@
 
     <FrameLayout
         android:background="@color/colorPrimary"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:id="@+id/frame_layout_left"
         android:layout_width="0dp"
         android:layout_height="match_parent">
@@ -21,7 +21,7 @@
 
     <FrameLayout
         android:background="@color/colorAccent"
-        android:layout_weight="1.5"
+        android:layout_weight="1"
         android:id="@+id/frame_layout_right"
         android:layout_width="0dp"
         android:layout_height="match_parent">

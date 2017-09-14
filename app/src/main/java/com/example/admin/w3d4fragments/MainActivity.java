@@ -4,12 +4,13 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements ListArtistFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements ListArtistFragment.OnFragmentInteractionListener, DetailsArtistFragment.OnFragmentInteractionListener{
     ArrayList<Famous> famousData;
-
+    Famous famous;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +41,28 @@ public class MainActivity extends AppCompatActivity implements ListArtistFragmen
 
 
 
+        Famous famous = famousData.get(0);
+
+        DetailsArtistFragment detailsArtistFragment = DetailsArtistFragment.newInstance(famous);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame_layout_right, detailsArtistFragment, "details_artist_fragment_tag_id")
+                .commit();
+
 
     }
 
     @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void onFragmentInteraction(String data) {
+        int position = Integer.parseInt(data);
+        Log.d("TAG", "onButtonPressedFinallll: " + position);
 
+        Famous famous = famousData.get(position);
+
+        DetailsArtistFragment detailsArtistFragment = DetailsArtistFragment.newInstance(famous);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout_right, detailsArtistFragment, "details_artist_fragment_tag_id")
+                .commit();
     }
 }

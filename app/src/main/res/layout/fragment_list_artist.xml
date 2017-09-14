@@ -14,5 +14,10 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <ToggleButton
+        android:text="Change layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 
 </FrameLayout>
