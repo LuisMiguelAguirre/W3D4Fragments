@@ -55,8 +55,6 @@ public class RecyclerViewFamouseAdapter extends RecyclerView.Adapter<RecyclerVie
 
 
         holder.textViewName.setOnClickListener(new View.OnClickListener(){
-
-
             @Override
             public void onClick(View v) {
 

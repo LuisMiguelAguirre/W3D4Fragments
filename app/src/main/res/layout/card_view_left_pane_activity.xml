@@ -18,6 +18,8 @@
         >
 
         <TextView
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|center_vertical|center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:id="@+id/text_view_left_pane_name"
             android:text="Name"
