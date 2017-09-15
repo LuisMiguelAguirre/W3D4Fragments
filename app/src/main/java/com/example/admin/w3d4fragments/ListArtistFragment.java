@@ -1,12 +1,9 @@
 package com.example.admin.w3d4fragments;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,17 +12,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 
 
-public class ListArtistFragment extends Fragment implements  RecyclerViewFamouseAdapter.OnViewHolderInteractionListener{
+public class ListArtistFragment extends Fragment implements RecyclerViewFamouseAdapter.OnViewHolderInteractionListener {
     private static final String ARG_PARAM1 = "famousData";
     private ArrayList<Famous> famousData;
     private RecyclerView famousRecyclerView;
-private CardView cardView;
+    private ToggleButton toggleButton;
+    RecyclerView.LayoutManager layoutManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -61,14 +59,30 @@ private CardView cardView;
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        toggleButton = view.findViewById(R.id.toggle_button_id);
         famousRecyclerView = view.findViewById(R.id.recycler_view_fragment_left);
         //I need to receive by paremeter the layout manager then a switch to select the correct one
 
 
-        //RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(view.getContext());
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(view.getContext(),3, GridLayoutManager.VERTICAL, true);//  (view.getContext(), 3);
-        famousRecyclerView.setLayoutManager(layoutManager);
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                if (toggleButton.isChecked()){
+
+                    layoutManager = new GridLayoutManager(view.getContext(), 3, GridLayoutManager.VERTICAL, true);
+                    famousRecyclerView.setLayoutManager(layoutManager);
+
+                }else {
+                    layoutManager = new LinearLayoutManager(view.getContext());
+                    famousRecyclerView.setLayoutManager(layoutManager);
+                }
+            }
+        });
+
+
+        layoutManager = new LinearLayoutManager(view.getContext());
+        famousRecyclerView.setLayoutManager(layoutManager);
 
         RecyclerView.ItemAnimator itemAnimator;
         itemAnimator = new DefaultItemAnimator();
@@ -76,7 +90,6 @@ private CardView cardView;
         RecyclerViewFamouseAdapter recyclerViewFamouseAdapter = new RecyclerViewFamouseAdapter(famousData);
         recyclerViewFamouseAdapter.setListener(this);
         famousRecyclerView.setAdapter(recyclerViewFamouseAdapter);
-
 
 
     }
