@@ -1,8 +1,7 @@
 package com.example.admin.w3d4fragments;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -31,11 +30,10 @@ public class MainActivity extends AppCompatActivity implements ListArtistFragmen
         famousData.add(new Famous("EMMA STONE", "Date of Birth: November 6, 1988  | Birth Place:Scottsdale, Arizona, U.S.", R.drawable.stone159231705));
         famousData.add(new Famous("WILL SMITH", "Date of Birth: September 25, 1968 | Birth Place: Philadelphia, PA", R.drawable.willsmith169638915));
 
-
         ListArtistFragment listArtistFragment =  ListArtistFragment.newInstance(famousData);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.frame_layout_left, listArtistFragment, "list_artist_fragment_tag_id")
+                .replace(R.id.frame_layout_left, listArtistFragment, "list_artist_fragment_tag_id")
                 .commit();
 
 
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements ListArtistFragmen
         DetailsArtistFragment detailsArtistFragment = DetailsArtistFragment.newInstance(famous);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.frame_layout_right, detailsArtistFragment, "details_artist_fragment_tag_id")
+                .replace(R.id.frame_layout_right, detailsArtistFragment, "details_artist_fragment_tag_id")
                 .commit();
 
 
