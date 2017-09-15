@@ -70,7 +70,7 @@ public class ListArtistFragment extends Fragment implements RecyclerViewFamouseA
 
                 if (toggleButton.isChecked()){
 
-                    layoutManager = new GridLayoutManager(view.getContext(), 3, GridLayoutManager.VERTICAL, true);
+                    layoutManager = new GridLayoutManager(view.getContext(), 3, GridLayoutManager.VERTICAL, false);
                     famousRecyclerView.setLayoutManager(layoutManager);
 
                 }else {

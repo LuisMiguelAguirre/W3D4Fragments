@@ -1,4 +1,7 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:orientation="vertical"
+    android:weightSum="10"
+    xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
@@ -7,6 +10,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <android.support.v7.widget.RecyclerView
+        android:layout_weight="9"
         android:id="@+id/recycler_view_fragment_left"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,10 +19,11 @@
     </android.support.v7.widget.RecyclerView>
 
     <ToggleButton
+        android:layout_weight="1"
         android:id="@+id/toggle_button_id"
         android:text="Change layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
 
-</FrameLayout>
+</LinearLayout>
