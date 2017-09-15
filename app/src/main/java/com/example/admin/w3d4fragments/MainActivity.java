@@ -1,9 +1,8 @@
 package com.example.admin.w3d4fragments;
 
-import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import java.util.ArrayList;

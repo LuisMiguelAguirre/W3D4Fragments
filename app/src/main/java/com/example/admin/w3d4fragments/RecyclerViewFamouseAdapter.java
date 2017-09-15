@@ -60,6 +60,7 @@ public class RecyclerViewFamouseAdapter extends RecyclerView.Adapter<RecyclerVie
 
                 if(mListener != null) {
                     mListener.onViewHolderInteraction(String.valueOf(position));
+                    ListArtistFragment l= (ListArtistFragment)mListener;
                 }
             }
 
